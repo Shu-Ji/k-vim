@@ -19,7 +19,7 @@
 " General 基础设置
 "==========================================
 
-"set guifont=Monaco:h20          " 字体 && 字号
+" set guifont=Monaco\ 14          " 字体 && 字号
 "配色方案
 
 " history存储长度。
@@ -57,7 +57,7 @@ set cursorline              " 突出显示当前行
 set t_ti= t_te=
 
 "- 则点击光标不会换,用于复制
-set mouse-=a           " 鼠标暂不启用, 键盘党....
+" set mouse-=a           " 鼠标暂不启用, 键盘党....
 set selection=exclusive
 set selectmode=mouse,key
 
@@ -139,6 +139,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+" C-n切换相对与绝对行号
 nnoremap <C-n> :call NumberToggle()<cr>
 
 "create undo file
@@ -146,7 +147,7 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 if v:version >= 730
     set undofile                " keep a persistent backup file
-    set undodir=~/bak/vimundo/
+    set undodir=~/.vimfilebak/vimundo/
 endif
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -161,7 +162,7 @@ set showmode
 " Set 7 lines to the cursor - when moving vertically using j/k 上下滚动,始终在中间
 set scrolloff=7
 
-"set winwidth=79
+set winwidth=79
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
@@ -195,8 +196,8 @@ set formatoptions+=B
 "==========================================
 " others 其它配置
 "==========================================
-autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
-autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
+"autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
+"autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
 
 " 自动补全配置
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
@@ -249,12 +250,22 @@ set whichwrap+=<,>,h,l
 "==========================================
 "hot key  自定义快捷键
 "==========================================
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = ';'
+let g:mapleader = ';'
+
+" 运行python
+map [r :w <CR>:! python % <CR>
+" tab转换为4个空格tab to space
+map <leader>t2s :%s/<tab>/    /g<CR>
+" 快速保存
+nmap <leader>w :w!<cr>
+
+nmap <leader>fd :se ff=dos<cr>
+nmap <leader>fu :se ff=unix<cr>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ee :e $MYVIMRC<CR>
+nmap <silent> <leader>ss :so $MYVIMRC<CR>
 
 "强迫自己用 hjkl
 map <Left> <Nop>
@@ -313,7 +324,7 @@ map Y y$
 cmap w!! %!sudo tee > /dev/null %
 noremap <silent><leader>/ :nohls<CR>
 
-inoremap kj <Esc>
+inoremap jj <Esc>
 " I can type :help on my own, thanks.
 noremap <F1> <Esc>"
 
@@ -370,7 +381,7 @@ nnoremap U <C-r>
 map <Leader>sa ggVG"
 
 " automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc'"
+"au BufWritePost .vimrc so ~/.vimrc'"
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -452,6 +463,8 @@ Bundle 'Lokaltog/vim-powerline'
 "if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
 "let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode'
+" powerline 显示绝对全路径
+let g:Powerline_stl_path_style = 'full'
 
 
 "括号显示增强
@@ -572,7 +585,7 @@ let g:pyflakes_use_quickfix = 0
 
 
 " for golang
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
 
 
 " for javascript
@@ -640,7 +653,7 @@ syntax on
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guifont=Monaco:h14
+    set guifont=Monaco\ 12
     set guioptions-=T
     set guioptions+=e
     set guioptions-=r
@@ -654,11 +667,11 @@ endif
 
 
 " 修改主题和颜色展示
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 set t_Co=256
 
-"colorscheme molokai
+colorscheme molokai
 "colorscheme desert
 
 "设置标记一列的背景颜色和数字一行颜色一致
