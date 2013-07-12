@@ -432,6 +432,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " 输入zsj插件当前时间
 imap zsj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
+
 "==========================================
 " bundle 插件管理和配置项
 "==========================================
@@ -632,6 +633,19 @@ Bundle 'thiderman/nginx-vim-syntax'
 " task list
 Bundle 'vim-scripts/TaskList.vim'
 map <leader>td <Plug>TaskList
+
+" CoffeeScript高亮
+Bundle 'kchmck/vim-coffee-script'
+
+" lesscss
+Bundle 'lunaru/vim-less'
+" less转换为css, 需要sudo apt-get install lessc
+nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+" css中颜色显示为背景
+"Bundle 'skammer/vim-css-color'
+" css3 语法高亮
+Bundle 'hail2u/vim-css3-syntax'
+
 
 " 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
 " 使用pyflakes,速度比pylint快
