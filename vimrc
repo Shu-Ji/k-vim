@@ -61,6 +61,8 @@ set t_ti= t_te=
 set selection=exclusive
 set selectmode=mouse,key
 
+set fileformat=unix  "换行使用unix方式
+
 " No annoying sound on errors
 " 去掉输入错误的提示声音
 set title                " change the terminal's title
@@ -75,7 +77,7 @@ set tm=500
 
 "显示行号：
 set number
-set nowrap                    " 取消换行。
+"set nowrap                    " 取消换行。
 
 "括号配对情况
 set showmatch
@@ -203,12 +205,12 @@ set formatoptions+=B
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "set completeopt+=longest
 set completeopt=longest,menu
- 
+
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
- 
+
 "上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
@@ -235,7 +237,7 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite * :call DeleteTrailingWS()
 
 " Remember info about open buffers on close"
 set viminfo^=%
@@ -493,20 +495,22 @@ let g:rbpt_loadcmd_toggle = 0
 "代码排版缩进标识
 Bundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
-let g:indentLine_color_term = 0
-let g:indentLine_char = '¦'
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
 
 
 "主题 solarized
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 "let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+"colorscheme solarized
 
 "主题 molokai
 Bundle 'tomasr/molokai'
 let g:molokai_original = 1
+colorscheme molokai
 
 
 "更高效的移动 ,, + w/fx
@@ -667,12 +671,9 @@ endif
 
 
 " 修改主题和颜色展示
-"colorscheme solarized
 set background=dark
 set t_Co=256
 
-colorscheme molokai
-"colorscheme desert
 
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr

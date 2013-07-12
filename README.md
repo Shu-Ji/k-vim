@@ -97,7 +97,7 @@ PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_confi
 4. 可能遇到的问题:
 
    编译相关插件,修改配置
- 
+
 
    * 相对行号
 
@@ -106,6 +106,7 @@ PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_confi
    * 编译自动补全YouCompleteMe
 
    [文档](https://github.com/Valloric/YouCompleteMe)
+   我的机器自动安装的时候clang报错，机器是ubuntu 12.04.2 i386,可是ycm自动下载的是13.04 x64，而且版本是clang 3.3，后来按照clang官网安装好clang，然后ycm官网的方法编译好ycm。
 
    这个插件需要Vim 7.3.584,所以,如果vim版本太低,需要[编译安装](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
 
@@ -141,7 +142,7 @@ molokai主题
     空格 /开启查找
     Y   =y$   复制到行尾
     w!!  以sudo的权限保存
-    kj   <Esc>，不用到角落去按esc了
+    jj   <Esc>，不用到角落去按esc了
     t    新起一行，下面，不进入插入模式
     T    新起一行，上面
     ,sa   全选(select all)
@@ -165,7 +166,7 @@ molokai主题
     ,/ 去除匹配高亮
 
 
- 
+
 ###插件及其快捷键说明
 
 图片有点多，展示有点慢，截得不是很专业，耐心看完:)
@@ -253,7 +254,7 @@ molokai主题
 3. ####[Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)
 
    DONE,装不装看个人喜好了,缩进标识
- 
+
 
    另一个类似的,整块背景色的的,nathanaelkane/vim-indent-guides
 

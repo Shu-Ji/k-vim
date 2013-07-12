@@ -1,12 +1,5 @@
-snippet #!
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-${1}
-endsnippet
-
 snippet code
-# -*- coding: utf-8 -*-
+# coding: utf-8
 endsnippet
 
 snippet im
@@ -14,10 +7,6 @@ import ${1}
 endsnippet
 
 snippet fim
-from ${1} import ${2}
-endsnippet
-
-snippet from
 from ${1} import ${2}
 endsnippet
 
@@ -36,11 +25,7 @@ endsnippet
 
 snippet main
 if __name__ == '__main__':
-    ${1}
-endsnippet
-
-snippet _
-__${1:init}__${2}
+    ${1:test()}
 endsnippet
 
 snippet di
@@ -79,29 +64,12 @@ elif ${1}:
     ${2}
 endsnippet
 
-snippet for
-for ${1:i} in ${2:sequence}:
-    ${0:# TODO}
-endsnippet
-
 snippet while
 while ${1:expression}:
     ${0:# TODO}
 endsnippet
 
-snippet def
-def ${1:function_name}(${2}):
-    """${3docstirng for $1}"""
-    ${3:# TODO: write code...}
-endsnippet
-
-snippet defs
-def ${1:function_name}(self, ${2}):
-    """${3docstirng for $1}"""
-    ${3:# TODO: write code...}
-endsnippet
-
-snippet cla
+snippet cla "with __init__"
 class ${1:clsname}(${2:object}):
     """${3:docstring for $1}"""
     def __init__(self${4}):
@@ -125,6 +93,7 @@ snippet as
 assert ${1}
 endsnippet
 
+# do while
 snippet dowh
 while True:
     ${1: # TODO: write code...}
@@ -186,10 +155,6 @@ snippet _
 __${1:init}__${2}
 endsnippet
 
-snippet pdb
-import pdb; pdb.set_trace()
-endsnippet
-
 # ------- docs -----------
 snippet doc
 """
@@ -207,9 +172,6 @@ endsnippet
 snippet prt
 print "TRACK ================= ${1}", ${2}
 endsnippet
-snippet #! "#!"
-#!/usr/bin/env python
-endsnippet
 
 snippet cla "cla"
 class ${1:ClassName}(${2:BaseClassName}):
@@ -226,7 +188,7 @@ class ${1:ModelName}(${2:models.Model}):
     """
     ${4:properties}
     def __unicode__(self):
-        return self.${5:property}:
+        return self.${5:property}
     class Meta:
         ${6:meta properties}
 endsnippet
@@ -315,10 +277,6 @@ endsnippet
 snippet whi "whi"
 while ${1:condition}:
     ${2:# code...}
-endsnippet
-
-snippet pdb "pdb"
-import pdb; pdb.set_trace()
 endsnippet
 
 snippet try "Try/Except"
