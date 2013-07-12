@@ -429,9 +429,6 @@ map <leader>tm :tabmove
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-" 输入zsj插件当前时间
-imap zsj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-
 
 "==========================================
 " bundle 插件管理和配置项
