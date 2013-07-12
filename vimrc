@@ -42,7 +42,7 @@ set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的
 " 备份,到另一个位置. 防止误删, 目前是取消备份
 "set backup
 "set backupext=.bak
-"set backupdir=~/bak/vimbk/
+"set backupdir=~/.vimbak/vimbk/
 
 " 取消备份。 视情况自己改
 set nobackup
@@ -57,7 +57,8 @@ set cursorline              " 突出显示当前行
 set t_ti= t_te=
 
 "- 则点击光标不会换,用于复制
-" set mouse-=a           " 鼠标暂不启用, 键盘党....
+set mouse=a           " 鼠标暂不启用, 键盘党....
+set mousemodel=popup
 set selection=exclusive
 set selectmode=mouse,key
 
@@ -78,11 +79,19 @@ set tm=500
 "显示行号：
 set number
 "set nowrap                    " 取消换行。
+"
+
+"set lines=40
+"set columns=140
+
+
+" 命令行高度
+set cmdheight=2
 
 "括号配对情况
 set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set mat=4
 
 "设置文内智能搜索提示
 " 高亮search命中的文本。
@@ -171,6 +180,22 @@ set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\
 " Always show the status line
 set laststatus=2
 
+" 显示TAB字符为<+++
+set list
+set list listchars=tab:<+
+
+set lazyredraw  "延迟重绘
+set guioptions-=m   "不显示菜单
+set guioptions-=T   "不显示工具栏"
+
+set cc=79  " 最大宽度 set colorcolumn=79
+set fo+=m  " 中文40个字符
+set tw=79
+
+" 第79列高亮颜色
+highlight ColorColumn guibg=DarkGray
+highlight ColorColumn ctermbg=1
+
 "==========================================
 " file encode, 文件编码,格式
 "==========================================
@@ -246,7 +271,8 @@ set viminfo^=%
 set magic
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent
+" set backspace=eol,start,indent
+set backspace=2     "退格键可以删除任何东西
 set whichwrap+=<,>,h,l
 
 "==========================================
@@ -266,8 +292,8 @@ nmap <leader>fd :se ff=dos<cr>
 nmap <leader>fu :se ff=unix<cr>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ee :e $MYVIMRC<CR>
-nmap <silent> <leader>ss :so $MYVIMRC<CR>
+nmap <silent> <leader>ee :e ~/.vimrc<CR>
+nmap <silent> <leader>ss :so ~/.vimrc<CR>
 
 "强迫自己用 hjkl
 map <Left> <Nop>
@@ -337,6 +363,10 @@ nnoremap <leader>v V`}
 "Use sane regexes"
 nnoremap / /\v
 vnoremap / /\v
+
+" > <符号缩进
+vnoremap < <gv
+vnoremap > >gv
 
 "Keep search pattern at the center of the screen."
 nnoremap <silent> n nzz
@@ -418,18 +448,46 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
+"
+
+" minibufexplorer
+Bundle 'fholgado/minibufexpl.vim'
+" minibufexpl插件的一般设置
+let g:miniBufExplMapCTabSwitchBufs = 1
+" minibuffer操作快捷方式!
+nnoremap <tab> :bn<CR>
+nnoremap <c-s-tab> :bp<CR>
+" 右方向键切换到下一个缓冲区文件
+map <right> :bn<cr>
+" 左方向键切换到上一个缓冲区文件
+map <left> :bp<cr>
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplorerMoreThanOne = 0
+let g:miniBufExplModSelTarget = 0
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplVSplit = 15
+let g:miniBufExplSplitBelow=0
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+let g:bufExplorerSortBy = "name"
+
+" zencoding
+Bundle 'mattn/zencoding-vim'
 
 "目录导航
 Bundle 'vim-scripts/The-NERD-tree'
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let g:netrw_home='~/bak'
+let g:netrw_home='~/.vimbak'
 
 "标签导航
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+
 
 "标签导航 要装ctags
 Bundle 'vim-scripts/taglist.vim'
@@ -521,7 +579,7 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$'
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
@@ -660,8 +718,8 @@ if has("gui_running")
     set guifont=Monaco\ 12
     set guioptions-=T
     set guioptions+=e
-    set guioptions-=r
-    set guioptions-=L
+    set guioptions-=L  " 隐藏左侧滚动条
+    set guioptions-=r  " 隐藏右侧滚动条"
     set guitablabel=%M\ %t
     set showtabline=1
     set linespace=2
