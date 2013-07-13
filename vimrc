@@ -48,8 +48,8 @@ set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的
 set nobackup
 set noswapfile
 
-" 突出显示当前行等 不喜欢这种定位可注解
-set cursorcolumn
+" 突出显示当前行列 不喜欢这种定位可注解
+" set cursorcolumn
 set cursorline              " 突出显示当前行
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
@@ -194,7 +194,7 @@ set tw=79
 
 " 第79列高亮颜色
 highlight ColorColumn guibg=DarkGray
-highlight ColorColumn ctermbg=1
+highlight ColorColumn ctermbg=236
 
 "==========================================
 " file encode, 文件编码,格式
@@ -223,8 +223,8 @@ set formatoptions+=B
 "==========================================
 " others 其它配置
 "==========================================
-"autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
-"autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
+autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
+autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
 
 " 自动补全配置
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
@@ -449,7 +449,27 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
-"
+
+
+"主题 solarized
+Bundle 'altercation/vim-colors-solarized'
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
+" let g:solarized_contrast="normal"
+" let g:solarized_visibility="normal"
+" colorscheme solarized
+
+"主题 molokai
+Bundle 'tomasr/molokai'
+let g:molokai_original = 1
+colorscheme molokai
+
+" distinguished主题
+Bundle 'Lokaltog/vim-distinguished'
+" colorscheme distinguished
+
+" session管理,保存编辑会话,undo,redo等等
+" Bundle 'vim-scripts/sessionman.vim'
 
 " minibufexplorer
 Bundle 'fholgado/minibufexpl.vim'
@@ -478,16 +498,20 @@ let g:bufExplorerSortBy = "name"
 Bundle 'mattn/zencoding-vim'
 
 "目录导航
-Bundle 'vim-scripts/The-NERD-tree'
-map <leader>n :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let g:netrw_home='~/.vimbak'
+" Bundle 'vim-scripts/The-NERD-tree'
+" map <leader>n :NERDTreeToggle<CR>
+" let NERDTreeHighlightCursorline=1
+" let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+" let g:netrw_home='~/.vimbak'
+" 打开文件时自动打开NERDTree
+" autocmd VimEnter *.* :NERDTree
 
 "标签导航
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+" 打开文件时自动打开tagbar
+autocmd BufEnter *.* :TagbarOpen
 
 
 "标签导航 要装ctags
@@ -556,20 +580,6 @@ Bundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
-
-
-"主题 solarized
-"Bundle 'altercation/vim-colors-solarized'
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-"let g:solarized_contrast="normal"
-"let g:solarized_visibility="normal"
-"colorscheme solarized
-
-"主题 molokai
-Bundle 'tomasr/molokai'
-let g:molokai_original = 1
-colorscheme molokai
 
 
 "更高效的移动 ,, + w/fx
