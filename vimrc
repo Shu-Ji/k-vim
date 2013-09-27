@@ -460,7 +460,7 @@ Bundle 'altercation/vim-colors-solarized'
 " colorscheme solarized
 
 "主题 molokai
-Bundle 'tomasr/molokai'
+Bundle 'Shu-Ji/molokai'
 let g:molokai_original = 1
 colorscheme molokai
 
@@ -496,6 +496,9 @@ let g:bufExplorerSortBy = "name"
 
 " zencoding
 Bundle 'mattn/zencoding-vim'
+
+Bundle 'othree/html5.vim'
+
 
 "目录导航
 " Bundle 'vim-scripts/The-NERD-tree'
@@ -548,8 +551,7 @@ Bundle 'Lokaltog/vim-powerline'
 "if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
 "let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode'
-" powerline 显示绝对全路径
-let g:Powerline_stl_path_style = 'full'
+" let g:Powerline_stl_path_style = 'short'
 
 
 "括号显示增强
@@ -589,9 +591,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$'
-let g:ctrlp_working_path_mode=0
+let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
