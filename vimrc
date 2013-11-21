@@ -450,6 +450,10 @@ Bundle 'gmarik/vundle'
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
+" jinja2高亮,因为原插件将jinja2识别为jinja类型,并且语法高亮的文件名也为
+" jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
+Bundle 'Glench/Vim-Jinja2-Syntax'
+
 
 "主题 solarized
 Bundle 'altercation/vim-colors-solarized'
@@ -495,7 +499,7 @@ let g:miniBufExplModSelTarget = 1
 let g:bufExplorerSortBy = "name"
 
 " zencoding
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 
 Bundle 'othree/html5.vim'
 
@@ -694,10 +698,6 @@ map <leader>f :MRU<CR>
 let MRU_Max_Menu_Entries = 20
 let MRU_Use_Current_Window = 1
 let MRU_Max_Entries = 100
-
-" jinja2高亮,因为原插件将jinja2识别为jinja类型,并且语法高亮的文件名也为
-" jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
-Bundle 'Shu-Ji/Vim-Jinja2-Syntax'
 
 Bundle 'vim-scripts/matchit.zip'
 
