@@ -49,7 +49,7 @@ set nobackup
 set noswapfile
 
 " 突出显示当前行列 不喜欢这种定位可注解
-" set cursorcolumn
+set cursorcolumn
 set cursorline              " 突出显示当前行
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
@@ -356,7 +356,7 @@ inoremap jj <Esc>
 " I can type :help on my own, thanks.
 noremap <F1> <Esc>"
 
-nnoremap ; :
+"nnoremap ; :
 
 nnoremap <leader>v V`}
 
@@ -469,7 +469,7 @@ let g:molokai_original = 1
 colorscheme molokai
 
 " distinguished主题
-Bundle 'Lokaltog/vim-distinguished'
+" Bundle 'Lokaltog/vim-distinguished'
 " colorscheme distinguished
 
 " session管理,保存编辑会话,undo,redo等等
@@ -589,7 +589,7 @@ let g:indentLine_char = '|'
 
 
 "更高效的移动 ,, + w/fx
-Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'Lokaltog/vim-easymotion'
 
 "for file search ctrlp
 Bundle 'kien/ctrlp.vim'
@@ -607,7 +607,7 @@ let g:ctrlp_follow_symlinks=1
 Bundle 'Raimondi/delimitMate'
 
 "快速 加减注释
-Bundle 'scrooloose/nerdcommenter'
+" Bundle 'scrooloose/nerdcommenter'
 
 "快速插入代码片段
 Bundle 'vim-scripts/UltiSnips'
@@ -620,14 +620,6 @@ let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 Bundle 'tpope/vim-surround'
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
-
-"迄今位置用到的最好的自动VIM自动补全插件
-Bundle 'Valloric/YouCompleteMe'
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
 
 
 " for markdown
@@ -727,6 +719,15 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+"迄今位置用到的最好的自动VIM自动补全插件
+Bundle 'Valloric/YouCompleteMe'
+"youcompleteme  默认tab  s-tab 和自动补全冲突
+"let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+
+
 " end turn on
 filetype plugin indent on
 
@@ -778,4 +779,3 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
