@@ -720,12 +720,13 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 "迄今位置用到的最好的自动VIM自动补全插件
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
 "let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
 
 
 " end turn on
