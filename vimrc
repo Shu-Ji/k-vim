@@ -39,7 +39,7 @@ set nocompatible
 set autoread          " 文件修改之后自动载入。
 set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的提示
 
-" 备份,到另一个位置. 防止误删, 目前是取消备份
+" 备份,到另一个位置. 防止误删
 "set backup
 "set backupext=.bak
 "set backupdir=~/.vimbak/vimbk/
@@ -57,7 +57,7 @@ set cursorline              " 突出显示当前行
 set t_ti= t_te=
 
 "- 则点击光标不会换,用于复制
-set mouse=a           " 鼠标暂不启用, 键盘党....
+"set mouse=a           " 鼠标暂不启用, 键盘党....
 set mousemodel=popup
 set selection=exclusive
 set selectmode=mouse,key
@@ -120,12 +120,12 @@ set smartindent
 set autoindent    " always set autoindenting on
 " never add copyindent, case error   " copy the previous indentation on autoindenting
 
-set tabstop=4                " 设置Tab键的宽度        [等同的空格个数]
+set tabstop=4 " 设置Tab键的宽度        [等同的空格个数]
 set shiftwidth=4  " number of spaces to use for autoindenting
-set softtabstop=4             " 按退格键时可以一次删掉 4 个空格
-set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
+set softtabstop=4 " 按退格键时可以一次删掉 4 个空格
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
 
-set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set expandtab " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 
@@ -141,12 +141,14 @@ set relativenumber
 au FocusLost * :set number
 au FocusGained * :set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set number
+autocmd InsertEnter * :set norelativenumber | set number
 autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
   if(&relativenumber == 1)
+    set norelativenumber
     set number
   else
+    set nonumber
     set relativenumber
   endif
 endfunc
@@ -154,14 +156,14 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 "create undo file
-set undolevels=1000         " How many undos
+set undolevels=10000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 if v:version >= 730
     set undofile                " keep a persistent backup file
     set undodir=~/.vimfilebak/vimundo/
 endif
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.obj,*.o
 
 "显示当前的行号列号：
 set ruler
@@ -283,6 +285,21 @@ let g:mapleader = ';'
 
 " 运行python
 map [r :w <CR>:! python % <CR>
+map <leader>py :w <CR>:! python % <CR>
+
+" 运行shell
+map <leader>sh :w <CR>:!sh % <CR>
+
+" 运行java
+func! CompileRunJava()
+    exec "w"
+    exec "!javac %"
+    if v:shell_error == 0
+        exec "!java %<.class"
+    endif
+endfunc
+map <leader>ja :w <CR>:call CompileRunJava()<CR>
+
 " tab转换为4个空格tab to space
 map <leader>t2s :%s/<tab>/    /g<CR>
 " 快速保存
@@ -330,11 +347,26 @@ nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
 ""为方便复制，用<F2>开启/关闭行号显示:
-nnoremap <F2> :set nonumber! number?<CR>
+function! ShowHideNumber()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+  if(&number == 1)
+    set nonumber
+  else
+    set number
+  endif
+endfunc
+" C-n切换相对与绝对行号
+"nnoremap <F2> :set nonumber! number?<CR>
+nnoremap <F2> :call ShowHideNumber()<cr>
+
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
               "set paste
-set pastetoggle=<F5>            " when in insert mode, press <F2> to go to
+set pastetoggle=<F5>            " when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
                                 "    that won't be autoindented
 
@@ -456,7 +488,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 
 
 "主题 solarized
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 " let g:solarized_termcolors=256
 " let g:solarized_termtrans=1
 " let g:solarized_contrast="normal"
@@ -518,7 +550,7 @@ Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 " 打开文件时自动打开tagbar
-autocmd BufEnter *.* :TagbarOpen
+"autocmd BufEnter *.* :TagbarOpen
 
 
 "标签导航 要装ctags
@@ -610,11 +642,11 @@ Bundle 'Raimondi/delimitMate'
 " Bundle 'scrooloose/nerdcommenter'
 
 "快速插入代码片段
-Bundle 'vim-scripts/UltiSnips'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"Bundle 'vim-scripts/UltiSnips'
+"let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
+"let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
 " 快速加入修改环绕字符
 Bundle 'tpope/vim-surround'
@@ -625,7 +657,6 @@ Bundle 'tpope/vim-repeat'
 " for markdown
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
-
 
 " for python.vim syntax highlight
 Bundle 'hdima/python-syntax'
