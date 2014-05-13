@@ -288,7 +288,7 @@ map [r :w <CR>:! python % <CR>
 map <leader>py :w <CR>:! python % <CR>
 
 " 运行shell
-map <leader>sh :w <CR>:!sh % <CR>
+map <leader>sh :w <CR>:!bash % <CR>
 
 " 运行java
 func! CompileRunJava()
