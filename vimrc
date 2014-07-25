@@ -192,7 +192,7 @@ set guioptions-=T   "不显示工具栏"
 
 set cc=79  " 最大宽度 set colorcolumn=79
 set fo+=m  " 中文40个字符
-set tw=79
+" set tw=79
 
 " 第79列高亮颜色
 highlight ColorColumn guibg=DarkGray
@@ -295,7 +295,7 @@ func! CompileRunJava()
     exec "w"
     exec "!javac %"
     if v:shell_error == 0
-        exec "!java %<.class"
+        exec "!java %<"
     endif
 endfunc
 map <leader>ja :w <CR>:call CompileRunJava()<CR>
