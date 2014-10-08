@@ -486,6 +486,8 @@ Bundle 'gmarik/vundle'
 " jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
 Bundle 'Glench/Vim-Jinja2-Syntax'
 
+Bundle 'digitaltoad/vim-jade'
+
 
 "主题 solarized
 "Bundle 'altercation/vim-colors-solarized'
