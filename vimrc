@@ -114,6 +114,8 @@ set foldenable
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
 set foldmethod=indent
 set foldlevel=99
+"set foldlevelstart=0  "默认折叠级别：0为缩进的1级，1为2级
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' :'zo')<CR>
 
 "Smart indent
 set smartindent
@@ -377,7 +379,7 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
+" map <space> /
 "map <c-space> ?"
 
 map Y y$
@@ -629,7 +631,8 @@ let g:indentLine_char = '|'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$|\vnode_modules$'
+set wildignore+=node_modules
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_max_height=15
