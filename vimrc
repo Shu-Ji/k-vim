@@ -40,13 +40,13 @@ set autoread          " 文件修改之后自动载入。
 set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的提示
 
 " 备份,到另一个位置. 防止误删
-"set backup
-"set backupext=.bak
-"set backupdir=~/.vimbak/vimbk/
+set backup
+set backupext=.bak
+set backupdir=/tmp/
 
 " 取消备份。 视情况自己改
-set nobackup
-set noswapfile
+" set nobackup
+" set noswapfile
 
 " 突出显示当前行列 不喜欢这种定位可注解
 set cursorcolumn
@@ -483,6 +483,8 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
+
+Bundle 'mtscout6/vim-cjsx'
 
 " jinja2高亮,因为原插件将jinja2识别为jinja类型,并且语法高亮的文件名也为
 " jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
