@@ -45,8 +45,8 @@ set backupext=.bak
 set backupdir=/tmp/
 
 " 取消备份。 视情况自己改
-" set nobackup
-" set noswapfile
+set nobackup
+set noswapfile
 
 " 突出显示当前行列 不喜欢这种定位可注解
 set cursorcolumn
@@ -670,7 +670,7 @@ Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
 "for nginx conf file highlight.   need to confirm it works
-Bundle 'thiderman/nginx-vim-syntax'
+Bundle 'Shu-Ji/nginx-vim-syntax'
 
 " task list
 Bundle 'vim-scripts/TaskList.vim'
@@ -758,13 +758,18 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 "迄今位置用到的最好的自动VIM自动补全插件
-"Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion = ['<Up>']
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
 
 "youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_previous_completion=['<c-p>']
+nmap <F4> :YcmDiags<CR>
+nmap <leader>jd :YcmCompleter GoTo<CR>
+nmap gl :YcmCompleter GoToDeclaration<CR>
+nmap gf :YcmCompleter GoToDefinition<CR>
+nmap go :YcmCompleter GoToDefinition<CR>
 
 
 " end turn on
