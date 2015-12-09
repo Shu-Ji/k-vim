@@ -361,13 +361,16 @@ function! ShowHideNumber()
     set number
   endif
 endfunc
-" C-n切换相对与绝对行号
+" C-n切换相对与绝对行号，同时如果不显示数字，那么同时隐藏缩进线
 "nnoremap <F2> :set nonumber! number?<CR>
-nnoremap <F2> :call ShowHideNumber()<cr>
+nnoremap <F2> :call ShowHideNumber()<cr>:IndentLinesToggle<cr>
 
-nnoremap <F3> :set list! list?<CR>
+" 移除缩进线
+"nnoremap <F3> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+nnoremap <F3> :IndentLinesToggle<CR>
+
 nnoremap <F4> :set wrap! wrap?<CR>
-              "set paste
+"set paste
 set pastetoggle=<F5>            " when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
                                 "    that won't be autoindented
@@ -375,7 +378,7 @@ set pastetoggle=<F5>            " when in insert mode, press <F5> to go to
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
 
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+nnoremap <F6> :set list! list?<CR>
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
