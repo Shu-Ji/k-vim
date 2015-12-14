@@ -698,11 +698,12 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_highlighting=0
 "let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
 " 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
 let g:loaded_syntastic_xml_xmllint_checker=0
+let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$" ]
 highlight SyntasticErrorSign guifg=white guibg=black
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
