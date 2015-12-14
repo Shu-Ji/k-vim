@@ -828,3 +828,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" nginx 高亮：需要将文件名以.nginx.conf结尾，如mysite.nginx.conf
+au BufNewFile,BufRead *.nginx.conf setf nginx
