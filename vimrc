@@ -165,8 +165,6 @@ if v:version >= 730
     set undodir=~/.vimfilebak/vimundo/
 endif
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.obj,*.o
-
 "显示当前的行号列号：
 set ruler
 ""在状态栏显示正在输入的命令
@@ -249,7 +247,7 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 " 增强模式中的命令行自动完成操作
 set wildmenu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.obj,*.o,*.map,*~
 
 " Python 文件的一般设置，比如不要 tab 等
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
@@ -636,7 +634,7 @@ let g:indentLine_char = '|'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$|\vnode_modules$'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$|.rvm$\|\.wsgic$\|\.gif$\|\.png$\|\.jpg$\|\.bmp$\|\.pyc$\|\.pyo$|\vnode_modules$|\.map$'
 set wildignore+=node_modules
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_match_window_bottom=1
