@@ -696,7 +696,7 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting=0
+let g:syntastic_enable_highlighting=1
 "let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
 " 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
