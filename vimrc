@@ -485,7 +485,13 @@ Bundle 'gmarik/vundle'
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
-Bundle 'mtscout6/vim-cjsx'
+Bundle 'posva/vim-vue'
+"Bundle 'digitaltoad/vim-pug'
+
+"Bundle 'StanAngeloff/php.vim'
+"Bundle 'shawncplus/phpcomplete.vim'
+
+"Bundle 'mtscout6/vim-cjsx'
 
 " jinja2高亮,因为原插件将jinja2识别为jinja类型,并且语法高亮的文件名也为
 " jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
@@ -681,9 +687,11 @@ map <leader>td <Plug>TaskList
 Bundle 'kchmck/vim-coffee-script'
 
 " lesscss
-Bundle 'lunaru/vim-less'
+Bundle 'groenewege/vim-less'
+"Bundle 'lunaru/vim-less'
+
 " less转换为css, 需要sudo apt-get install lessc
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+"nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 " css中颜色显示为背景
 "Bundle 'skammer/vim-css-color'
 " css3 语法高亮
@@ -692,17 +700,17 @@ Bundle 'hail2u/vim-css3-syntax'
 
 " 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
 " 使用pyflakes,速度比pylint快
-Bundle 'scrooloose/syntastic'
-let g:syntastic_error_symbol='>>'
-let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting=1
-"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
-let g:syntastic_python_checkers=['pyflakes']
-" 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
-let g:loaded_syntastic_xml_xmllint_checker=0
-let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$" ]
-highlight SyntasticErrorSign guifg=white guibg=black
+"Bundle 'scrooloose/syntastic'
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_warning_symbol='>'
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_highlighting=1
+""let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+"let g:syntastic_python_checkers=['pyflakes']
+"" 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
+"let g:loaded_syntastic_xml_xmllint_checker=0
+"let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$" ]
+"highlight SyntasticErrorSign guifg=white guibg=black
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
 Bundle 'kevinw/pyflakes-vim'
