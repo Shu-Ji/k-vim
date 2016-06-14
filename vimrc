@@ -630,7 +630,10 @@ let g:rbpt_loadcmd_toggle = 0
 Bundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 239
-let g:indentLine_char = '|'
+let g:indentLine_char = '┆'
+
+let g:indentLine_leadingSpaceEnabled = 0
+let g:indentLine_leadingSpaceChar = '.'
 
 
 "更高效的移动 ,, + w/fx
