@@ -283,6 +283,7 @@ let g:mapleader = ';'
 
 " 运行python
 map [r :w <CR>:! python % <CR>
+map [3 :w <CR>:! python3 % <CR>
 map <leader>py :w <CR>:! python % <CR>
 
 " 运行shell
@@ -490,6 +491,7 @@ Bundle 'posva/vim-vue'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 
 Bundle 'digitaltoad/vim-jade'
+Bundle 'digitaltoad/vim-pug'
 
 
 "主题 solarized
