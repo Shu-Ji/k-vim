@@ -557,7 +557,7 @@ Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 " 打开文件时自动打开tagbar
-autocmd BufEnter *.* :TagbarOpen
+"autocmd BufEnter *.* :TagbarOpen
 
 
 "标签导航 要装ctags
@@ -656,11 +656,16 @@ Bundle 'Raimondi/delimitMate'
 
 "快速 加减注释
 " Bundle 'scrooloose/nerdcommenter'
+"
+
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
 
 "快速插入代码片段
 "Bundle 'vim-scripts/UltiSnips'
-"let g:UltiSnipsExpandTrigger = "<tab>"
-"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
 "let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
