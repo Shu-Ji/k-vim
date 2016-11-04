@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/finn/apps/mydotfiles'
+let g:netrw_dirhist_2='/home/finn/vim8/vim-8.0.0000/myvim/_vim'
+let g:netrw_dirhist_3='/home/finn/vim8/vim-8.0.0000/myvim/_vim/bundle'
+let g:netrw_dirhist_4='/home/finn/.virtualenvs/zuoan/zuoan/frontend/src/assets'

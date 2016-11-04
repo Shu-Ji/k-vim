@@ -45,7 +45,7 @@ set backupext=.bak
 set backupdir=/tmp/
 
 " 取消备份。 视情况自己改
-set nobackup
+"set nobackup
 set noswapfile
 
 " 突出显示当前行列 不喜欢这种定位可注解
@@ -478,6 +478,7 @@ Bundle 'gmarik/vundle'
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
+Bundle 'editorconfig/editorconfig-vim'
 Bundle 'posva/vim-vue'
 "Bundle 'digitaltoad/vim-pug'
 
