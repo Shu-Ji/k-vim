@@ -717,7 +717,7 @@ let g:syntastic_enable_highlighting=1
 let g:syntastic_python_checkers=['pyflakes']
 " 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
 let g:loaded_syntastic_xml_xmllint_checker=1
-let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$", ".*\.html" ]
+let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$", ".*\.html", ".*\.md$" ]
 highlight SyntasticErrorSign guifg=white guibg=black
 
 set statusline+=%#warningmsg#
