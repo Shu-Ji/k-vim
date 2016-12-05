@@ -161,7 +161,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 set undolevels=10000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 if v:version >= 730
-    set undofile                " keep a persistent backup file
+    set undofile                " keep a persistent backup file
     set undodir=~/.vimfilebak/vimundo/
 endif
 
@@ -489,7 +489,7 @@ Bundle 'posva/vim-vue'
 
 " jinja2高亮,因为原插件将jinja2识别为jinja类型,并且语法高亮的文件名也为
 " jinja.vim,导致snips插件不能正确使用代码片段,故fork过来了.
-Bundle 'Glench/Vim-Jinja2-Syntax'
+"Bundle 'Glench/Vim-Jinja2-Syntax'
 
 Bundle 'digitaltoad/vim-jade'
 Bundle 'digitaltoad/vim-pug'
