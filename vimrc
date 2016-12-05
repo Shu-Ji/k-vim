@@ -478,6 +478,11 @@ Bundle 'gmarik/vundle'
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
+Bundle "elzr/vim-json"
+" 显示双引号
+let g:vim_json_syntax_conceal=0
+
+
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'posva/vim-vue'
 "Bundle 'digitaltoad/vim-pug'
