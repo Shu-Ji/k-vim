@@ -424,8 +424,10 @@ nnoremap <leader>q :q<CR>
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
 " column, so swap them
-nnoremap ' `
-nnoremap ` '
+" 下面这两个映射困扰了N年，现在终于解决了:(
+" 如果启用，那么当保存文件的时候，光标会自动跳转到行首！！！
+"nnoremap ' `
+"nnoremap ` '
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
