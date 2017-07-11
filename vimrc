@@ -285,6 +285,7 @@ let g:mapleader = ';'
 map [r :w <CR>:! python % <CR>
 map [3 :w <CR>:! python3 % <CR>
 map <leader>py :w <CR>:! python % <CR>
+map <leader>ts :w <CR>:! tsc % <CR>
 
 " 运行shell
 map <leader>sh :w <CR>:!bash % <CR>
@@ -479,6 +480,8 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
+
+Bundle 'leafgarland/typescript-vim'
 
 Bundle "elzr/vim-json"
 " 显示双引号
@@ -715,27 +718,27 @@ Bundle 'hail2u/vim-css3-syntax'
 
 " 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
 " 使用pyflakes,速度比pylint快
-Bundle 'scrooloose/syntastic'
-let g:syntastic_error_symbol='>>'
-let g:syntastic_warning_symbol='>'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting=1
-"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
-let g:syntastic_python_checkers=['pyflakes']
-" 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
-let g:loaded_syntastic_xml_xmllint_checker=1
-let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$", ".*\.html", ".*\.md$" ]
-highlight SyntasticErrorSign guifg=white guibg=black
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
+"Bundle 'scrooloose/syntastic'
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_warning_symbol='>'
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_highlighting=1
+""let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+"let g:syntastic_python_checkers=['pyflakes']
+"" 不要检查xmllint语法，有的网址被和谐了，不能访问，会卡死：
+"let g:loaded_syntastic_xml_xmllint_checker=1
+"let g:syntastic_ignore_files=[ ".*\.py$", ".*\.xml$", ".*\.txt$", ".*\.html", ".*\.md$" ]
+"highlight SyntasticErrorSign guifg=white guibg=black
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_auto_jump = 0
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
 Bundle 'kevinw/pyflakes-vim'
