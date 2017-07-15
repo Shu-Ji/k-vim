@@ -285,6 +285,7 @@ let g:mapleader = ';'
 map [r :w <CR>:! python % <CR>
 map [3 :w <CR>:! python3 % <CR>
 map <leader>py :w <CR>:! python % <CR>
+map <leader>ts :w <CR>:! tsc % <CR>
 
 " 运行shell
 map <leader>sh :w <CR>:!bash % <CR>
@@ -479,6 +480,8 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
+
+Bundle 'leafgarland/typescript-vim'
 
 Bundle "elzr/vim-json"
 " 显示双引号
@@ -713,8 +716,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 
 
-"" 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
-"" 使用pyflakes,速度比pylint快
+" 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
+" 使用pyflakes,速度比pylint快
 "Bundle 'scrooloose/syntastic'
 "let g:syntastic_error_symbol='>>'
 "let g:syntastic_warning_symbol='>'
