@@ -281,24 +281,27 @@ set whichwrap+=<,>,h,l
 let mapleader = ';'
 let g:mapleader = ';'
 
-" 运行python
-map [r :w <CR>:! python % <CR>
-map [3 :w <CR>:! python3 % <CR>
-map <leader>py :w <CR>:! python % <CR>
-map <leader>ts :w <CR>:! tsc % <CR>
-
-" 运行shell
-map <leader>sh :w <CR>:!bash % <CR>
-
-" 运行java
-func! CompileRunJava()
+" 运行
+func! Run()
     exec "w"
-    exec "!javac %"
-    if v:shell_error == 0
-        exec "!java %<"
+    if &filetype == 'python'
+        exec "!python %"
+    elseif &filetype == 'sh'
+        exec "!bash %"
+    elseif &filetype == 'swift'
+        exec "!swift %"
+    elseif &filetype == 'ts'
+        exec "!tsc %"
+    elseif &filetype == 'java'
+        exec "!javac %"
+    elseif &filetype == 'c'
+        exec "!g++ % -o %<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
     endif
 endfunc
-map <leader>ja :w <CR>:call CompileRunJava()<CR>
+
+map <leader>r :call Run()<CR>
 
 " tab转换为4个空格tab to space
 map <leader>t2s :%s/<tab>/    /g<CR>
@@ -480,6 +483,8 @@ Bundle 'gmarik/vundle'
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
+
+Bundle 'keith/swift.vim'
 
 Bundle 'leafgarland/typescript-vim'
 
