@@ -493,6 +493,9 @@ Bundle "elzr/vim-json"
 let g:vim_json_syntax_conceal=0
 
 
+Bundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'posva/vim-vue'
 "Bundle 'digitaltoad/vim-pug'
@@ -674,12 +677,13 @@ Bundle 'Raimondi/delimitMate'
 " Bundle 'scrooloose/nerdcommenter'
 "
 
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-
 
 "快速插入代码片段
-"Bundle 'vim-scripts/UltiSnips'
+" vim-react-snippets:
+Bundle "justinj/vim-react-snippets"
+
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
