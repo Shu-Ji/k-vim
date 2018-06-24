@@ -484,6 +484,8 @@ Bundle 'gmarik/vundle'
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
+Bundle 'dart-lang/dart-vim-plugin'
+
 Bundle 'keith/swift.vim'
 
 Bundle 'leafgarland/typescript-vim'
@@ -682,10 +684,10 @@ Bundle 'Raimondi/delimitMate'
 " vim-react-snippets:
 Bundle "justinj/vim-react-snippets"
 
-Bundle 'SirVer/ultisnips'
+"Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
 "let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
 
