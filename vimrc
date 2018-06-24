@@ -288,6 +288,8 @@ func! Run()
         exec "!python %"
     elseif &filetype == 'sh'
         exec "!bash %"
+    elseif &filetype == 'javascript.jsx'
+        exec "!node %"
     elseif &filetype == 'swift'
         exec "!swift %"
     elseif &filetype == 'ts'
@@ -900,3 +902,5 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+set exrc
