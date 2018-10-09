@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/finn/apps/mydotfiles'
-let g:netrw_dirhist_2='/home/finn/vim8/vim-8.0.0000/myvim/_vim'
-let g:netrw_dirhist_3='/home/finn/vim8/vim-8.0.0000/myvim/_vim/bundle'
-let g:netrw_dirhist_4='/home/finn/.virtualenvs/zuoan/zuoan/frontend/src/assets'
-let g:netrw_dirhist_5='/Users/finn/.virtualenvs/guizili-frontend/frontend/src/views/dashboard'
-let g:netrw_dirhist_6='/usr/local/var/db/redis'
-let g:netrw_dirhist_7='/Users/finn/.virtualenvs'
-let g:netrw_dirhist_8='/Users/finn/.virtualenvs/guizili-frontend/frontend/src'
-let g:netrw_dirhist_9='/Users/finn/.virtualenvs/guizili-backend/backend/guizili/utils'
+let g:netrw_dirhist_cnt =0
